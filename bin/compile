@@ -20,6 +20,7 @@ APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
 
 (
     mv "${BUILD_DIR}/${APP_BASE}" "${STAGE}" &&
+    mv "${BUILD_DIR}/yarn.$(basename "$APP_BASE").lock" "${STAGE}/yarn.lock" &&
     rm -rf "${BUILD_DIR}"/* &&
     mv "${STAGE}/$(basename "$APP_BASE")"/* "${BUILD_DIR}"
 )
