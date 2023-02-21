@@ -13,9 +13,6 @@ ENV_DIR="$3"
 STAGE="$(mktemp -d)"
 BUILD_SCRIPT="build"
 
-echo $SOURCE_VERSION
-git diff-tree --no-commit-id --name-only -r $SOURCE_VERSION
-
 if [ ! -f "${ENV_DIR}/PACKAGE_NAME" ]; then
     echo "PACKAGE_NAME was not set. Aborting" | indent
     exit 1
@@ -27,6 +24,7 @@ if [ -f "${ENV_DIR}/BUILD_SCRIPT" ]; then
     BUILD_SCRIPT="$(cat "${ENV_DIR}/BUILD_SCRIPT")"
 fi
 
-pnpm lerna run ${BUILD_SCRIPT} --scope=${PACKAGE_NAME} 
+cd $STAGE && \
+    pnpm lerna run ${BUILD_SCRIPT} --scope=${PACKAGE_NAME} 
 
 echo "Copied ${PACKAGE_NAME} to root of app successfully" | indent
