@@ -11,7 +11,7 @@ BUILD_DIR="$1"
 CACHE_DIR="$2"
 ENV_DIR="$3"
 STAGE="$(mktemp -d)"
-BUILD_SCRIPT="build"
+BUILD_SCRIPT="heroku-postbuild"
 
 if [ ! -f "${ENV_DIR}/PACKAGE_NAME" ]; then
     echo "PACKAGE_NAME was not set. Aborting" | indent
