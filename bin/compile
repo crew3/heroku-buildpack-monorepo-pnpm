@@ -24,6 +24,7 @@ if [ -f "${ENV_DIR}/BUILD_SCRIPT" ]; then
     BUILD_SCRIPT="$(cat "${ENV_DIR}/BUILD_SCRIPT")"
 fi
 
+# build all packages and and project before prune
 cd "$BUILD_DIR" && \
     pnpm lerna run ${BUILD_SCRIPT} --scope=${PACKAGE_NAME} && \
     pnpm prune --prod
