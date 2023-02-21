@@ -25,6 +25,7 @@ if [ -f "${ENV_DIR}/BUILD_SCRIPT" ]; then
 fi
 
 cd "$BUILD_DIR" && \
-    pnpm lerna run ${BUILD_SCRIPT} --scope=${PACKAGE_NAME} 
+    pnpm lerna run ${BUILD_SCRIPT} --scope=${PACKAGE_NAME} && \
+    pnpm prune --prod
 
 echo "Script ${BUILD_SCRIPT} executed in ${PACKAGE_NAME} package" | indent
