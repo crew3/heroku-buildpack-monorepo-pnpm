@@ -31,6 +31,4 @@ cd "$BUILD_DIR" && \
 # installing prod dependencies
 echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
 
-pnpm --filter ${PACKAGE_NAME}... install --prod
-
-echo "Script \"${BUILD_SCRIPT}\" executed in ${PACKAGE_NAME} package" | indent
+pnpm --filter ${PACKAGE_NAME}... install
