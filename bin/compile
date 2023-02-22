@@ -26,4 +26,9 @@ fi
 
 # build all packages and and project before prune
 cd "$BUILD_DIR" && \
-    yarn lerna run ${BUILD_SCRIPT} --scope=${PACKAGE_NAME}
+    pnpm lerna run ${BUILD_SCRIPT} --scope=${PACKAGE_NAME}
+
+# installing prod dependencies
+echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
+
+pnpm --filter ${PACKAGE_NAME}... install
