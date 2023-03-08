@@ -34,7 +34,7 @@ echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
 if [ $PACKAGE_NAME="@crew3/webapp" ]; then
     echo "Prune ${PACKAGE_NAME} devDependencies" | indent
     pnpm clean
-    pnpm --filter ${PACKAGE_NAME}... install --prod
+    pnpm --filter ${PACKAGE_NAME}... install --force --prod
 else
     pnpm --filter ${PACKAGE_NAME}... install
 fi
