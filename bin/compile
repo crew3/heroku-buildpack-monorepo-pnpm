@@ -31,4 +31,10 @@ cd "$BUILD_DIR" && \
 # installing prod dependencies
 echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
 
-pnpm --filter ${PACKAGE_NAME}... install
+if [ $PACKAGE_NAME="@crew3/webapp" ]; then
+    pnpm --filter ${PACKAGE_NAME}... install --production
+else
+    pnpm --filter ${PACKAGE_NAME}... install
+fi
+
+
