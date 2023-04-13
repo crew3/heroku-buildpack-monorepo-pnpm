@@ -35,9 +35,12 @@ if [ $PACKAGE_NAME == "@crew3/webapp" ]; then
     echo "Prune ${PACKAGE_NAME} devDependencies" | indent
     pnpm clean
     rm -rf ./node_modules/
+    rm -rf packages/*/node_modules/
     pnpm --filter ${PACKAGE_NAME}... install --force --prod
+    pnpm prune --prod
 else
     pnpm --filter ${PACKAGE_NAME}... install
+    pnpm prune --prod
 fi
 
 
