@@ -31,7 +31,7 @@ cd "$BUILD_DIR" && \
 # installing prod dependencies
 echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
 
-if [ $PACKAGE_NAME == "@crew3/webapp" ]; then
+if [ $PACKAGE_NAME == "@crew3/webapp" ||  $PACKAGE_NAME == "@crew3/backend" ]; then
     echo "Prune ${PACKAGE_NAME} devDependencies" | indent
     pnpm clean
     rm -rf ./node_modules/
