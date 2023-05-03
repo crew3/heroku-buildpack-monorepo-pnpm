@@ -38,6 +38,12 @@ if [ $PACKAGE_NAME == "@crew3/webapp" ||  $PACKAGE_NAME == "@crew3/backend" ]; t
     rm -rf packages/*/node_modules/
     pnpm --filter ${PACKAGE_NAME}... install --force --prod
     pnpm prune --prod
+    
+    if [ $PACKAGE_NAME == "@crew3/backend" ]; then
+        rm -rf packages/client
+        rm -rf packages/webapp
+    fi
+    
 else
     pnpm --filter ${PACKAGE_NAME}... install
     pnpm prune --prod
