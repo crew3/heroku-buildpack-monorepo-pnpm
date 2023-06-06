@@ -36,5 +36,6 @@ pnpm clean
 rm -rf ./node_modules/
 pnpm --filter ${PACKAGE_NAME}... install --prod
 pnpm prune --prod
+ls
 
 
