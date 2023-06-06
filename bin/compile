@@ -37,4 +37,8 @@ rm -rf ./node_modules/
 pnpm --filter ${PACKAGE_NAME}... install --prod
 pnpm prune --prod
 
+if [ "${PACKAGE_NAME}" != "@crew3/webapp" ]; then
+    echo "Deleting ${PACKAGE_NAME}..." | indent
+    rm -rf ./packages/webapp
+fi
 
