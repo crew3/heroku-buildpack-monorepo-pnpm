@@ -37,8 +37,14 @@ rm -rf ./node_modules/
 pnpm --filter ${PACKAGE_NAME}... install --prod
 pnpm prune --prod
 
-if [ "${PACKAGE_NAME}" != "@crew3/webapp" ]; then
-    echo "Deleting ${PACKAGE_NAME}..." | indent
+if [ "${PACKAGE_NAME}" == "@crew3/backend" ]; then
+    echo "Deleting webapp package" | indent
     rm -rf ./packages/webapp
+fi
+
+if [ "${PACKAGE_NAME}" == "@crew3/discord" ]; then
+    echo "Deleting webapp and client package" | indent
+    rm -rf ./packages/webapp
+    rm -rf ./packages/client
 fi
 
