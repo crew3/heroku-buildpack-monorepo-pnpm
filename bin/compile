@@ -41,5 +41,8 @@ if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/b
     echo "Deleting webapp and client package" | indent
     rm -rf ./packages/webapp
     rm -rf ./packages/client
+    if [ "${PACKAGE_NAME}" == "@crew3/backend" ]; then
+        rm -rf ./packages/discord-bot
+    fi
 fi
 
