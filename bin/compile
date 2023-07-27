@@ -44,6 +44,8 @@ if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/b
     rm -rf ./packages/ds
     rm -rf ./packages/queries
     rm -rf ./packages/tokens
+    rm -rf ./.git
+    rm -rf ./.github
     rm -rf ./packages/reverse-proxy
     rm -rf ./packages/api-docs
     rm -rf ./packages/i18n
