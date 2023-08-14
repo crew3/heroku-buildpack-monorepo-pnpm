@@ -48,10 +48,16 @@ if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/b
     rm -rf ./.github
     rm -rf ./packages/reverse-proxy
     rm -rf ./packages/i18n
-    if [ "${PACKAGE_NAME}" == "@crew3/backend" ]; then
+    if [ "${PACKAGE_NAME}" == "@crew3/backend" ] || [ "${PACKAGE_NAME}" == "@crew3/tp-listener" ]; then
         echo "Deleting discord bot package" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/tp-listener
     fi
+    if [ "${PACKAGE_NAME}" == "@crew3/tp-listener" ]; then
+        echo "Deleting discord bot and backend package" | indent
+        rm -rf ./packages/backend
+        rm -rf ./packages/discord-bot
+    fi
+
 fi
 
