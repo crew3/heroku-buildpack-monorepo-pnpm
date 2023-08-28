@@ -65,3 +65,4 @@ if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/b
     fi
 fi
 
+du -h -d 1 packages/* | sort -hr
