@@ -32,7 +32,8 @@ cd "$BUILD_DIR" && \
 echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
 
 echo "Prune ${PACKAGE_NAME} devDependencies" | indent
-pnpm clean:all
+pnpm clean
+rm -rf ./node_modules
 pnpm --filter ${PACKAGE_NAME}... install --prod
 pnpm prune --prod
 
