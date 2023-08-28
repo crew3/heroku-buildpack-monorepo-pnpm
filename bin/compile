@@ -32,12 +32,6 @@ echo "clean node modules for all packages and project" | indent
 pnpm clean
 rm -rf ./node_modules
 
-echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
-pnpm --filter ${PACKAGE_NAME}... install --prod
-
-echo "Prune ${PACKAGE_NAME} devDependencies" | indent
-pnpm prune --prod
-
 if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/backend" ] || [ "${PACKAGE_NAME}" == "@crew3/tp-listener" ]; then
     echo "Deleting webapp and client package" | indent
     rm -rf ./packages/webapp
@@ -66,5 +60,11 @@ if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/b
     fi
 fi
 
+echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
+pnpm --filter ${PACKAGE_NAME}... install --prod
+
+echo "Prune ${PACKAGE_NAME} devDependencies" | indent
+pnpm prune --prod
+
 echo "Check size" | indent
-du -h -d 1 packages/* | sort -hr
+du -h -d 2 | sort -hr
