@@ -60,6 +60,16 @@ if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/b
     fi
 fi
 
+if [ "${PACKAGE_NAME}" == "@crew3/client" ]; then
+    echo "Deleting webapp, backend, discord and tp-listener package" | indent
+    rm -rf ./packages/webapp
+    rm -rf ./packages/backend
+    rm -rf ./packages/discord-bot
+    rm -rf ./packages/tp-listener
+    rm -rf ./.git
+    rm -rf ./.github
+fi
+
 echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
 pnpm --filter ${PACKAGE_NAME}... install --prod
 
