@@ -32,7 +32,7 @@ echo "clean node modules for all packages and project" | indent
 pnpm clean
 rm -rf ./node_modules
 
-if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/backend" ] || [ "${PACKAGE_NAME}" == "@crew3/tp-listener" ]; then
+if [ "${PACKAGE_NAME}" == "discord" ] || [ "${PACKAGE_NAME}" == "backend" ] || [ "${PACKAGE_NAME}" == "tp-listener" ]; then
     echo "Deleting webapp and client package" | indent
     rm -rf ./packages/webapp
     rm -rf ./packages/client
@@ -43,24 +43,24 @@ if [ "${PACKAGE_NAME}" == "@crew3/discord" ] || [ "${PACKAGE_NAME}" == "@crew3/b
     rm -rf ./.github
     rm -rf ./packages/reverse-proxy
     rm -rf ./packages/i18n
-    if [ "${PACKAGE_NAME}" == "@crew3/backend" ]; then
+    if [ "${PACKAGE_NAME}" == "backend" ]; then
         echo "Deleting discord and tp listener packages" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/tp-listener
     fi
-    if [ "${PACKAGE_NAME}" == "@crew3/discord" ]; then
+    if [ "${PACKAGE_NAME}" == "discord" ]; then
         echo "Deleting backend and tp-listener packages" | indent
         rm -rf ./packages/backend
         rm -rf ./packages/tp-listener
     fi
-    if [ "${PACKAGE_NAME}" == "@crew3/tp-listener" ]; then
+    if [ "${PACKAGE_NAME}" == "tp-listener" ]; then
         echo "Deleting discord and backend packages" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/backend
     fi
 fi
 
-if [ "${PACKAGE_NAME}" == "@crew3/client" ]; then
+if [ "${PACKAGE_NAME}" == "client" ]; then
     echo "Deleting webapp, backend, discord and tp-listener package" | indent
     rm -rf ./packages/webapp
     rm -rf ./packages/backend
