@@ -24,10 +24,6 @@ if [ -f "${ENV_DIR}/BUILD_SCRIPT" ]; then
     BUILD_SCRIPT="$(cat "${ENV_DIR}/BUILD_SCRIPT")"
 fi
 
-echo "BUILD_DIR ${BUILD_DIR}" | indent
-echo "ENV_DIR ${ENV_DIR}" | indent
-echo "PACKAGE_NAME ${PACKAGE_NAME}" | indent
-
 echo "build all packages and project before prune" | indent
 cd "$BUILD_DIR" && \
     dotenv -e .env -- pnpm turbo ${BUILD_SCRIPT} --filter=${PACKAGE_NAME}
