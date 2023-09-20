@@ -32,7 +32,7 @@ echo "clean node modules for all packages and project" | indent
 pnpm clean
 rm -rf ./node_modules
 
-if [ "${PACKAGE_NAME}" == "discord" ] || [ "${PACKAGE_NAME}" == "backend" ] || [ "${PACKAGE_NAME}" == "backend-v2" ] || [ "${PACKAGE_NAME}" == "tp-listener" ]; then
+if [ "${PACKAGE_NAME}" == "discord" ] || [ "${PACKAGE_NAME}" == "backend" ] || [ "${PACKAGE_NAME}" == "v2-backend" ] || [ "${PACKAGE_NAME}" == "tp-listener" ]; then
     echo "Deleting webapp and client package" | indent
     rm -rf ./packages/webapp
     rm -rf ./packages/client
@@ -43,29 +43,29 @@ if [ "${PACKAGE_NAME}" == "discord" ] || [ "${PACKAGE_NAME}" == "backend" ] || [
     rm -rf ./.github
     rm -rf ./packages/reverse-proxy
     rm -rf ./packages/i18n
-    if [ "${PACKAGE_NAME}" == "backend-v2" ]; then
+    if [ "${PACKAGE_NAME}" == "v2-backend" ]; then
         echo "Deleting backend, discord and tp listener packages" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/tp-listener
         rm -rf ./packages/backend
     fi
     if [ "${PACKAGE_NAME}" == "backend" ]; then
-        echo "Deleting backend-v2, discord and tp listener packages" | indent
+        echo "Deleting v2-backend, discord and tp listener packages" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/tp-listener
-        rm -rf ./packages/backend-v2
+        rm -rf ./packages/v2-backend
     fi
     if [ "${PACKAGE_NAME}" == "discord" ]; then
         echo "Deleting both backends and tp-listener packages" | indent
         rm -rf ./packages/tp-listener
         rm -rf ./packages/backend
-        rm -rf ./packages/backend-v2
+        rm -rf ./packages/v2-backend
     fi
     if [ "${PACKAGE_NAME}" == "tp-listener" ]; then
         echo "Deleting both backends and discord packages" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/backend
-        rm -rf ./packages/backend-v2
+        rm -rf ./packages/v2-backend
     fi
 fi
 
