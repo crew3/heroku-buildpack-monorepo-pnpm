@@ -80,8 +80,8 @@ if [ "${PACKAGE_NAME}" == "client" ]; then
 fi
 
 echo "Installing production dependencies for ${PACKAGE_NAME}..." | indent
-pnpm --filter ${PACKAGE_NAME}... install --prod
-( cd node_modules/.pnpm/sharp@0.32.4/node_modules/sharp ; npm_config_arch=x64 npm_config_platform=linux pnpm --config.arch=arm64 --config.platform=linux run install )
+pnpm --filter ${PACKAGE_NAME}... install --prod --ignore-scripts=false
+# ( cd node_modules/.pnpm/sharp@0.32.4/node_modules/sharp ; npm_config_arch=x64 npm_config_platform=linux pnpm --config.arch=arm64 --config.platform=linux run install )
 
 echo "Prune ${PACKAGE_NAME} devDependencies" | indent
 pnpm prune --prod
