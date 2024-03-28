@@ -48,24 +48,35 @@ if [ "${PACKAGE_NAME}" == "discord" ] || [ "${PACKAGE_NAME}" == "backend" ] || [
         rm -rf ./packages/discord-bot
         rm -rf ./packages/tp-listener
         rm -rf ./packages/backend
+        rm -rf ./packages/redis-url-aws-sync
     fi
     if [ "${PACKAGE_NAME}" == "backend" ]; then
         echo "Deleting api, discord and tp listener packages" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/tp-listener
         rm -rf ./packages/api
+        rm -rf ./packages/redis-url-aws-sync
     fi
     if [ "${PACKAGE_NAME}" == "discord" ]; then
         echo "Deleting both backends and tp-listener packages" | indent
         rm -rf ./packages/tp-listener
         rm -rf ./packages/backend
         rm -rf ./packages/api
+        rm -rf ./packages/redis-url-aws-sync
     fi
     if [ "${PACKAGE_NAME}" == "tp-listener" ]; then
         echo "Deleting both backends and discord packages" | indent
         rm -rf ./packages/discord-bot
         rm -rf ./packages/backend
         rm -rf ./packages/api
+        rm -rf ./packages/redis-url-aws-sync
+    fi
+    if [ "${PACKAGE_NAME}" == "redis-url-aws-sync" ]; then
+        echo "Deleting both backends and discord packages" | indent
+        rm -rf ./packages/discord-bot
+        rm -rf ./packages/backend
+        rm -rf ./packages/api
+        rm -rf ./packages/tp-listener
     fi
 fi
 
@@ -75,6 +86,7 @@ if [ "${PACKAGE_NAME}" == "client" ]; then
     rm -rf ./packages/backend
     rm -rf ./packages/discord-bot
     rm -rf ./packages/tp-listener
+    rm -rf ./packages/redis-url-aws-sync
     rm -rf ./.git
     rm -rf ./.github
 fi
@@ -87,4 +99,3 @@ pnpm prune --prod
 
 echo "Check size" | indent
 du -h -d 2 | sort -hr
-
