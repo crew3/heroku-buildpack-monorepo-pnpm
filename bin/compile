@@ -32,7 +32,7 @@ echo "clean node modules for all packages and project" | indent
 pnpm clean
 rm -rf ./node_modules
 
-if [ "${PACKAGE_NAME}" == "discord" ] || [ "${PACKAGE_NAME}" == "backend" ] || [ "${PACKAGE_NAME}" == "api" ] || [ "${PACKAGE_NAME}" == "tp-listener" ]; then
+if [ "${PACKAGE_NAME}" == "discord" ] || [ "${PACKAGE_NAME}" == "backend" ] || [ "${PACKAGE_NAME}" == "api" ] || [ "${PACKAGE_NAME}" == "tp-listener" ] || [ "${PACKAGE_NAME}" == "redis-url-aws-sync" ]; then
     echo "Deleting webapp and client package" | indent
     rm -rf ./packages/webapp
     rm -rf ./packages/client
